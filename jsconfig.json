@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+     
+    //   "paths": {
+    //     "components/*": ["components/*"]
+    //   }
+    },
+    "exclude": ["node_modules", "dist", ".next", "out", "next.config.js"],
+    "include": ["**/*.js", "**/*.jsx", "i18n.js"],
+  }
