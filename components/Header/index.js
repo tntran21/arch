@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Container } from "./styles"
 
@@ -13,9 +14,12 @@ class Header extends React.Component {
           </div>
 
           <div className="nav">
-            <div className="nav__item">Project</div>
+            <div className="nav__item">Project
+            </div>
             <div className="nav__item">About</div>
-            <div className="nav__item">News</div>
+            <div className="nav__item">News
+              {/* <FontAwesomeIcon icon={"home"} size="sm"/> */}
+            </div>
           </div>
         </div>
       </Container>

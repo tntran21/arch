@@ -7,6 +7,7 @@ export const Container = styled.div`
     top: 0;
     box-shadow: 0 0 6px 0 var(--g-colorGray200Hovered);
     z-index: 1000;
+    background: #fff;
     .header {
         &__container {
             display: flex;

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Head from '../components/head';
 import Header from "components/Header"
+import ProjectList from "components/ProjectList"
 import { NextSeo } from "next-seo"
 import SEO from "seo/home"
 
@@ -9,9 +10,7 @@ const Page = () => (
     <Header/>
     <NextSeo {...SEO}/>
     <div className="hero">
-      <div className="row">
-        
-      </div>
+      <ProjectList />
     </div>
   </div>
 );
