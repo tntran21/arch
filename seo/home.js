@@ -1,5 +1,5 @@
 export default {
-    title: "Using More of Config",
+    title: "Test aKhue",
     description:"This example uses more of the available config options.",
     canonical:"https://www.canonical.ie/",
     twitter: {
