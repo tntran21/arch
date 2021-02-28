@@ -1,25 +1,71 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Container } from "./styles"
+import Link from 'next/link'
 
 const logo = "/static/images/logo.jpg"
 
 class Header extends React.Component {
+  state = {
+    isShowMenu: false,
+  }
+  listMenu = [
+    {
+      path: "/projects",
+      name: "Projects"
+    },
+    {
+      path: "/news",
+      name: "News"
+    },
+    {
+      path: "/contact",
+      name: "Contact"
+    },
+  ]
+
+  handleBarIcon = () => {
+    this.setState({
+      isShowMenu: !this.state.isShowMenu
+    })
+  }
+
   render() {
+    const { isShowMenu } = this.state;
     return (
       <Container className="header">
         <div className="header__container">
-          <div className="header__logo">
-            <img src={logo} alt="logo"/>
+          <div className="icon__menu" onClick={this.handleBarIcon}>
+            <FontAwesomeIcon icon={!isShowMenu ? "bars" : "times"}/>
           </div>
+          <div className="header__left">
+            <div className="header__logo">
+              <img src={logo} alt="logo"/>
+            </div>
 
-          <div className="nav">
-            <div className="nav__item">Project
+            <div className={`nav ${isShowMenu ? "active" : ""}`}>
+              {
+                this.listMenu.map((item, index) =>
+                  <div key={index} className="nav__item">
+                    <Link href={item.path}>
+                      <a>{item.name}</a>
+                    </Link>
+                  </div>
+                )
+              }
             </div>
-            <div className="nav__item">About</div>
-            <div className="nav__item">News
-              {/* <FontAwesomeIcon icon={"home"} size="sm"/> */}
-            </div>
+          </div>
+          <div className="header__right">
+            <a className="social__item" href="#" target="_blank">
+              <div>
+                <FontAwesomeIcon icon={['fab', 'facebook']} />
+              </div>
+              
+            </a>
+            <a className="social__item" href="#" target="_blank">
+              <FontAwesomeIcon icon="envelope" />
+            </a>
+            
           </div>
         </div>
       </Container>

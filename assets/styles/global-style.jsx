@@ -20,6 +20,7 @@ export const baseStyle = (
                 color: var(--primary-text-color);
                 font-family: "MonsterratRegular";
                 font-size: ${getSize(14)};
+                line-height: 1.3;
             }
             :root {
                 --ts: 414;

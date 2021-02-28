@@ -3,6 +3,7 @@ import App from 'next/app'
 import { baseStyle, resetStyle } from "assets/styles/global-style"
 import "assets/styles/index.scss"
 import "fontawesome"
+import Layout from 'components/Layout'
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
@@ -26,7 +27,9 @@ export default class MyApp extends App {
       <>
         {resetStyle}
         {baseStyle}
-        <Component {...pageProps} {...this.state}/>
+        <Layout>
+          <Component {...pageProps} {...this.state}/>
+        </Layout>
       </>
     )
   }
