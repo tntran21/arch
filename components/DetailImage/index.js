@@ -1,4 +1,6 @@
+import ProjectList from "components/ProjectList";
 import React from "react";
+import StackGrid from "react-stack-grid";
 import { Container } from "./styles";
 
 class DetailImage extends React.PureComponent {
@@ -11,13 +13,18 @@ class DetailImage extends React.PureComponent {
     return(
       <Container>
         <div className="images">
-          {
-            images.map((item, index) => 
-              <div className="images__item" key={index}>
-                <img src={item.src} alt={item.alt}/>
-              </div>
-            )
-          }
+          {/* <StackGrid
+            columnWidth={252}
+            monitorImagesLoaded={true}
+          > */}
+            {
+              images.map((item, index) => 
+                <div className="images__item" key={index}>
+                  <img src={item.src} alt={item.alt}/>
+                </div>
+              )
+            }
+          {/* </StackGrid> */}
         </div>
       </Container>
     )
