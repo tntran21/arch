@@ -4,8 +4,9 @@ import { baseStyle, resetStyle } from "assets/styles/global-style"
 import "assets/styles/index.scss"
 import "fontawesome"
 import Layout from 'components/Layout'
-import { HOME_PATH } from 'utils/constants/pathname'
+import { gsap, TimelineLite } from "gsap";
 
+gsap.registerPlugin(TimelineLite);
 export default class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {}
