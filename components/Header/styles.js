@@ -2,7 +2,6 @@ import styled from "@emotion/styled"
 import { getSize, getSizeAuto } from "utils/common/size-utils";
 
 export const Container = styled.div`
-   
     position: sticky;
     top: 0;
     box-shadow: inset 0px -1px 0px #f3f4f4;
@@ -33,6 +32,10 @@ export const Container = styled.div`
             width: ${getSize(50)};
             height: ${getSize(50)};
             margin-right: ${getSize(20)};
+            cursor: pointer;
+            img {
+                border-radius: 5px;
+            }
             @media (max-width: 768px) {
                 margin-right: 0;
             }

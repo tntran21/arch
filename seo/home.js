@@ -1,7 +1,7 @@
 export default {
-    title: "Test aKhue",
-    description:"This example uses more of the available config options.",
-    canonical:"https://www.canonical.ie/",
+    title: "ArchHouse",
+    description:"Wellcome to ArchHouse",
+    canonical:"/static/images/home4.jpg",
     twitter: {
         handle: '@handle',
         site: '@site',

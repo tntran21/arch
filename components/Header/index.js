@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Container } from "./styles"
 import Link from 'next/link'
+import { HOME_PATH, NEWS_PATH, PROJECT_PATH, CONTACT_PATH } from 'utils/constants/pathname'
 
 const logo = "/static/images/logo.jpg"
 
@@ -11,15 +12,15 @@ class Header extends React.Component {
   }
   listMenu = [
     {
-      path: "/projects",
+      path: PROJECT_PATH,
       name: "Projects"
     },
     {
-      path: "/news",
+      path: NEWS_PATH,
       name: "News"
     },
     {
-      path: "/contact",
+      path: CONTACT_PATH,
       name: "Contact"
     },
   ]
@@ -39,9 +40,11 @@ class Header extends React.Component {
             <FontAwesomeIcon icon={!isShowMenu ? "bars" : "times"}/>
           </div>
           <div className="header__left">
-            <div className="header__logo">
-              <img src={logo} alt="logo"/>
-            </div>
+            <Link href={HOME_PATH}>
+              <div className="header__logo">
+                <img src={logo} alt="logo"/>
+              </div>
+            </Link>
 
             <div className={`nav ${isShowMenu ? "active" : ""}`}>
               {

@@ -6,10 +6,6 @@ class ItemDetail extends React.PureComponent {
     super(props)
   }
 
-  componentDidMount() {
-    console.log("prop: ", this.props)
-  }
-
   render() {
     const { title, description, detail } = this.props;
 
