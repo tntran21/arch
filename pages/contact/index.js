@@ -1,11 +1,14 @@
 import React from "react";
 import { Container } from "assets/styles/pages/contact";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { gsap, TimelineLite } from "gsap";
+import { gsap, TimelineLite } from 'gsap/all';
+import CSSPlugin from 'gsap/CSSPlugin';
 import { NextSeo } from "next-seo"
 import SEO from "seo/contact"
 
-gsap.registerPlugin(TimelineLite);
+const C = CSSPlugin;
+
+// gsap.registerPlugin(TimelineLite);
 const contactList = [
   {
     name: "Address",
@@ -33,6 +36,10 @@ class ContactPage extends React.PureComponent {
   }
 
   componentDidMount() {
+    const GSAP = require("gsap/CSSRulePlugin");
+    const { CSSRulePlugin } = GSAP;
+    gsap.registerPlugin(CSSRulePlugin);
+    
     this.tl.staggerFrom(this.listElm, 0.5, { autoAlpha: 0, y: 200 }, 0.5)
   }
 
