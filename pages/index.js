@@ -1,10 +1,14 @@
+import { gsap } from "gsap/dist/gsap";
 import React from 'react';
 import { NextSeo } from "next-seo";
 import SEO from "seo/home";
 import { Container } from "assets/styles/pages/home";
 import Link from 'next/link';
 import { CONTACT_PATH, PROJECT_PATH } from 'utils/constants/pathname';
-import {gsap, TimelineLite } from 'gsap';
+import { TimelineLite } from 'gsap';
+// import CSSPlugin from "gsap/CSSPlugin";
+
+// const myPlugins = [CSSPlugin];
 
 const logo = "/static/images/logo.jpg";
 class HomePage extends React.PureComponent {

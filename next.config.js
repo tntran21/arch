@@ -1,13 +1,16 @@
 const path = require('path')
+// next.config.js
+const withTM = require('next-transpile-modules')(['gsap']);
+;
+module.exports = withTM({
+  webpack: (config, options) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+    },
 
-module.exports = {
-  webpack: (config) => {
     config.node = {
       fs: 'empty',
-      // sassOptions: {
-      //   includePaths: [path.join(__dirname, 'styles')],
-      // }
     }
-    return config
-  }
-};
+    return config;
+  },
+});
