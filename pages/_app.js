@@ -3,10 +3,8 @@ import App from 'next/app'
 import { baseStyle, resetStyle } from "assets/styles/global-style"
 import "assets/styles/index.scss"
 import "fontawesome"
+import "gsap"
 import Layout from 'components/Layout'
-import { gsap, TimelineLite } from "gsap";
-
-gsap.registerPlugin(TimelineLite);
 export default class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {}

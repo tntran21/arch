@@ -2,12 +2,8 @@ import React from "react";
 import { Container } from "assets/styles/pages/contact";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { TimelineLite } from 'gsap/all';
-import { gsap } from "gsap";
-import CSSPlugin from 'gsap/CSSPlugin';
 import { NextSeo } from "next-seo"
 import SEO from "seo/contact"
-
-gsap.registerPlugin(CSSPlugin, TimelineLite);
 
 const contactList = [
   {
@@ -36,8 +32,6 @@ class ContactPage extends React.PureComponent {
   }
 
   componentDidMount() {
-    gsap.registerPlugin(CSSPlugin, TimelineLite)
-
     this.tl.staggerFrom(this.listElm, 0.5, { autoAlpha: 0, y: 200 }, 0.5)
   }
 
