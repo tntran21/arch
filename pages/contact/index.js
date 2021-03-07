@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "assets/styles/pages/contact";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { TimelineLite } from 'gsap/all';
+import gsap from 'gsap';
 import { NextSeo } from "next-seo"
 import SEO from "seo/contact"
 
@@ -27,7 +27,7 @@ class ContactPage extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    this.tl = new TimelineLite();
+    this.tl = gsap.timeline();
     this.listElm = [];
   }
 

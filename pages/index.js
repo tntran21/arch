@@ -1,14 +1,10 @@
-import { gsap } from "gsap/dist/gsap";
 import React from 'react';
 import { NextSeo } from "next-seo";
 import SEO from "seo/home";
 import { Container } from "assets/styles/pages/home";
 import Link from 'next/link';
 import { CONTACT_PATH, PROJECT_PATH } from 'utils/constants/pathname';
-import { TimelineLite } from 'gsap';
-// import CSSPlugin from "gsap/CSSPlugin";
-
-// const myPlugins = [CSSPlugin];
+import gsap from 'gsap';
 
 const logo = "/static/images/logo.jpg";
 class HomePage extends React.PureComponent {
@@ -19,7 +15,7 @@ class HomePage extends React.PureComponent {
     this.txt3 = null;
     this.header = null;
     this.txtLogo = null;
-    this.tl = new TimelineLite();
+    this.tl = gsap.timeline({paused: true});
   }
 
   componentDidMount() {
@@ -30,8 +26,8 @@ class HomePage extends React.PureComponent {
       .from(this.txt3, 1.2, {autoAlpha: 0, y: 200 }, "-=.5")
       .from(this.header, .8, { autoAlpha: 0, y: -100, clipPath: "inset(0% 100% 0% 0%)"}, "-=1")
       .from(this.txtLogo, 1, { autoAlpha: 0, right: "-10%"}, "-=1")
+      .play()
   }
-
 
   render() {
     return(
