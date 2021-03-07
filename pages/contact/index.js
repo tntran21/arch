@@ -1,10 +1,11 @@
 import React from "react";
 import { Container } from "assets/styles/pages/contact";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { TimelineLite } from "gsap";
+import { gsap, TimelineLite } from "gsap";
 import { NextSeo } from "next-seo"
 import SEO from "seo/contact"
 
+gsap.registerPlugin(TimelineLite);
 const contactList = [
   {
     name: "Address",

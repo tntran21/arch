@@ -4,10 +4,10 @@ import SEO from "seo/home";
 import { Container } from "assets/styles/pages/home";
 import Link from 'next/link';
 import { CONTACT_PATH, PROJECT_PATH } from 'utils/constants/pathname';
-import { TimelineLite } from 'gsap';
+import {gsap, TimelineLite } from 'gsap';
+
+gsap.registerPlugin(TimelineLite);
 const logo = "/static/images/logo.jpg";
-
-
 class HomePage extends React.PureComponent {
   constructor(props){
     super(props);
