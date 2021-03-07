@@ -20,6 +20,7 @@ class HomePage extends React.PureComponent {
   }
 
   componentDidMount() {
+    gsap.registerPlugin(TimelineLite);
     this.tl
       .from(this.txt1, 0.8, { opacity: 0, visibility: "hidden",  y: "-400"})
       .to(this.txt1, 0.8, { opacity: 1, visibility: "inherit", y: 0})
