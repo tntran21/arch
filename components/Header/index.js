@@ -31,6 +31,12 @@ class Header extends React.Component {
     })
   }
 
+  handleCloseNav = () => {
+    this.setState({
+      isShowMenu: false,
+    })
+  }
+
   render() {
     const { isShowMenu } = this.state;
     return (
@@ -50,8 +56,10 @@ class Header extends React.Component {
               {
                 this.listMenu.map((item, index) =>
                   <div key={index} className="nav__item">
-                    <Link href={item.path}>
-                      <a>{item.name}</a>
+                    <Link href={item.path} >
+                      <a>
+                        <span onClick={this.handleCloseNav}>{item.name}</span>
+                      </a>
                     </Link>
                   </div>
                 )

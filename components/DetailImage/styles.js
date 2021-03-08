@@ -42,9 +42,11 @@ export const Container = styled.div`
     justify-content: center;
     background: #000;
     .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       max-width: 100%;
       background: #000;
-      
     }
     .btn__close {
       color: #fff;

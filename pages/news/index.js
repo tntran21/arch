@@ -8,10 +8,10 @@ const DynamicComponent = dynamic(() => import('components/ProjectList'))
 class NewsPage extends React.PureComponent {
   render() {
     return(
-      <>
+      <div>
         <NextSeo {...SEO}/>
         <DynamicComponent />
-      </>
+      </div>
     )
   }
 }

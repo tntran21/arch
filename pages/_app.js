@@ -6,6 +6,7 @@ import "fontawesome"
 import "gsap"
 import Layout from 'components/Layout'
 export default class MyApp extends App {
+
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {}
     if (Component.getInitialProps) {
@@ -15,13 +16,9 @@ export default class MyApp extends App {
     return { pageProps, pathName: router.pathname }
   }
 
-  componentDidMount() {
-    // console.log(this.props.pathName)
-  }
-
 
   render () {
-    const { Component, pageProps, pathName } = this.props
+    const { Component, pageProps } = this.props
 
     return (
       <>
