@@ -12,6 +12,10 @@ const sesion1 = [
     bgI: "/static/images/landingpage/bgS1-2.jpg",
     alt: "hahaha"
   },
+  {
+    bgI: "/static/images/landingpage/bgS1-3.jpg",
+    alt: "hahaha"
+  },
 ]
 
 class LandingPage extends PureComponent {
@@ -41,8 +45,6 @@ class LandingPage extends PureComponent {
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", this.handleShowLogo);
 
-      
-      // this.tl1.to(this.bgS1, 1, { backgroundImage: `url(${sesion1[0].bgI})`});
       this.handleSection1();
     }
 
@@ -75,19 +77,22 @@ class LandingPage extends PureComponent {
   // Section1
   handleSection1 = () => {
     let curentImageIndex = 0;
-    const elm = this.bgS1.current;
     const els = document.querySelectorAll(".section-1 > .sec-bg");
 
     setInterval(() => {
-      elm.style.animation = null;
-      elm.style.backgroundImage = `url(${sesion1[curentImageIndex].bgI})`;
+      els.forEach(el => {
+        el.style.transition = "all 1s ease-out 0s";
+        el.style.opacity = 0;
+        el.style.visibility = "hidden";
+        el.style.animation = "none";
+      });
+      els[curentImageIndex].style.opacity = 1;
+      els[curentImageIndex].style.visibility = "inherit";
+      els[curentImageIndex].style.animation = "bgMove 25s ease-out";
       curentImageIndex++;
-      elm.style.animation = "bgMove 20s"
+
       if (curentImageIndex >= sesion1.length) curentImageIndex = 0;
-
-  
-
-    }, 3000)
+    }, 4000)
   }
 
 
@@ -101,18 +106,17 @@ class LandingPage extends PureComponent {
             <div className="nav-item">Contact</div>
           </div>
    
-            <div className="nav-logo logo-l" ref={div => this.logo1 = div}>
+            <div className="nav-logo logo-1" ref={div => this.logo1 = div}>
               <div className="txt1" ref={div => this.lgT1 = div}>A<span className="txt-small">rch</span></div>
               <div className="txt2" ref={div => this.lgT2 = div}>H<span className="txt-small">ouse</span></div>
             </div>
             <div className="nav-logo logo-2" ref={div => this.logo2 = div}><span>A</span><span>H</span></div>
 
         </div>
-        
-        <section className="section section-1 start" ref={this.bgS1} style={{backgroundImage: `url(${sesion1[0].bgI})`}}>
+        <section className="section section-1 start" ref={this.bgS1} >
           {
             sesion1.map((item, i) => 
-              <div className={`sec-bg sec${i + 1}-bg`} style={{backgroundImage: `url(${item.bgI})`, animation: "bgMove 20s", display: "none"}}></div>
+              <div className={`sec-bg sec${i + 1}-bg`} key={i} style={{backgroundImage: `url(${item.bgI})`, animation: "bgMove 25s linear"}}></div>
             )
           }
         </section>

@@ -14,6 +14,7 @@ export const Container = styled.div`
     z-index: 10;
     padding: ${getSize(0, 15)};
     box-sizing: border-box;
+    background: rgb(232 232 232 / 50%);
 
     &-list {
       display: flex;
@@ -36,7 +37,7 @@ export const Container = styled.div`
       font-size: ${getSize(90)};
       font-weight: bold;
       line-height: 1;
-
+      
       &.logo-1 {
         .txt {
           &2 {
@@ -65,7 +66,7 @@ export const Container = styled.div`
     }
   }
 
-  // Section
+  /** Section **/
   .section {
     min-height: 100vh;
     width: 100%;
@@ -74,16 +75,15 @@ export const Container = styled.div`
 
     @keyframes bgMove {
       from { background-position: 0 0; }
-      to { background-position:  0 -400px; }
+      to { background-position:  0 -200px; }
     }
 
     &-1 {
       position: relative;
       background-color: rgba(0, 0, 0, 0.37);
-      background-size: cover;
+      background-size: 100% 130%;
       background-repeat: no-repeat;
       overflow: hidden;
-      animation-delay: 2s;
 
       .sec-bg {
         position: absolute;
@@ -94,7 +94,6 @@ export const Container = styled.div`
         background-size: cover;
         background-repeat: no-repeat;
         overflow: hidden;
-        animation: bgMove 20s infinite;
         background-color: rgba(0, 0, 0, 0.37);
       }
 
