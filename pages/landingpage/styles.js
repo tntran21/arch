@@ -74,7 +74,7 @@ export const Container = styled.div`
     padding-top: ${getSize(100)};
 
     @keyframes bgMove {
-      from { background-position: 0 0; }
+      from { background-position: 0, 0; }
       to { background-position:  0 -200px; }
     }
 
@@ -90,11 +90,29 @@ export const Container = styled.div`
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: 130%;
         background-size: cover;
         background-repeat: no-repeat;
         overflow: hidden;
-        background-color: rgba(0, 0, 0, 0.37);
+        // background-color: rgba(0, 0, 0, 0.37);
+
+        img {
+          display: block;
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+          object-position: 50% 50%;
+          // transform: translate(0%, -10%) matrix(1, 0, 0, 1, 0, 0);
+
+        }
+
+        @keyframes bgMove {
+          from { translate(0%, -10%) matrix(1, 0, 0, 1, 0, 0); }
+          to { translate(0%, 0%) matrix(1, 0, 0, 1, 0, 0) }
+        }
+
+       
+
       }
 
      
