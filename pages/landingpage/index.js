@@ -16,6 +16,14 @@ const sesion1 = [
     bgI: "/static/images/landingpage/bgS1-3.jpg",
     alt: "hahaha"
   },
+  {
+    bgI: "/static/images/landingpage/bgS1-4.jpg",
+    alt: "hahaha"
+  },
+  {
+    bgI: "/static/images/landingpage/bgS1-5.jpg",
+    alt: "hahaha"
+  },
 ]
 
 class LandingPage extends PureComponent {
@@ -77,27 +85,24 @@ class LandingPage extends PureComponent {
   // Section1
   handleSection1 = () => {
     let curentImageIndex = 0;
-    const els = document.querySelectorAll(".section-1 > .sec-bg > img");
-    const a = document.querySelectorAll(".section-1 > .sec-bg")
+    const els = document.querySelectorAll(".section-1 > .sec-bg");
+    const imgEl = document.querySelectorAll(".section-1 > .sec-bg > img")
 
     setInterval(() => {
       els.forEach(el => {
         el.style.transition = "all 1s ease-out 0s";
         el.style.opacity = 0;
-        // el.style.transform = "translate(0%, -10%)";
         el.style.visibility = "hidden";
-        el.style.animation = "none";
+        el.firstElementChild.style.animation = "none"
       });
-      els[curentImageIndex].style.animation = "bgMove 25s ease-out";
       els[curentImageIndex].style.transition = "all 1s ease-out 0s";
       els[curentImageIndex].style.opacity = 1;
-      // els[curentImageIndex].style.transform = "translate(0, 0)";
       els[curentImageIndex].style.visibility = "inherit";
+      els[curentImageIndex].style.animation = "bgMove1 18s";
      
       curentImageIndex++;
-
       if (curentImageIndex >= sesion1.length) curentImageIndex = 0;
-    }, 4000)
+    }, 6000)
   }
 
 
@@ -121,16 +126,24 @@ class LandingPage extends PureComponent {
         <section className="section section-1 start" ref={this.bgS1} >
           {
             sesion1.map((item, i) => 
-              // <div className={`sec-bg sec${i + 1}-bg`} key={i} style={{backgroundImage: `url(${item.bgI})`, animation: "bgMove 25s linear"}}>
               <div className={`sec-bg sec${i + 1}-bg`} key={i}>
                 <img src={item.bgI} alt={item.alt}/>
               </div>
             )
           }
+
+          {/* <div className="slider-1">
+            {
+              sesion1.map((item, i) => 
+                <div className={`sec-bg sec${i + 1}-bg`} key={i}>
+                  <img src={item.bgI} alt={item.alt}/>
+                </div>
+              )
+            }
+          </div> */}
         </section>
 
         <section className="section section-2">
-          hello
         </section>
       </Container>
     )

@@ -73,10 +73,11 @@ export const Container = styled.div`
     overflow-x: hidden;
     padding-top: ${getSize(100)};
 
-    @keyframes bgMove {
-      from { background-position: 0, 0; }
-      to { background-position:  0 -200px; }
+    @keyframes bgMove1 {
+      from { transform: translate(0%, -10%); }
+      to { transform:  translate(0%, 0%); }
     }
+
 
     &-1 {
       position: relative;
@@ -94,7 +95,7 @@ export const Container = styled.div`
         background-size: cover;
         background-repeat: no-repeat;
         overflow: hidden;
-        // background-color: rgba(0, 0, 0, 0.37);
+        animation: bgMove 20s infinite;
 
         img {
           display: block;
@@ -102,20 +103,11 @@ export const Container = styled.div`
           width: 100%;
           height: 100%;
           object-position: 50% 50%;
-          // transform: translate(0%, -10%) matrix(1, 0, 0, 1, 0, 0);
-
+          transform: translate(0%, -10%) matrix(1, 0, 0, 1, 0, 0);
+          // will-change: transform,opacity;
+          animation: bgMove1 18s infinite;
         }
-
-        @keyframes bgMove {
-          from { translate(0%, -10%) matrix(1, 0, 0, 1, 0, 0); }
-          to { translate(0%, 0%) matrix(1, 0, 0, 1, 0, 0) }
-        }
-
-       
-
       }
-
-     
     }
   }
 `;
