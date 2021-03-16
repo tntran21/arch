@@ -40,6 +40,8 @@ class LandingPage extends PureComponent {
     this.logo2 = React.createRef();
     this.lgT1 = React.createRef();
     this.lgT1 = React.createRef();
+    this.sliderTL = gsap.timeline({repeat: -1});
+
 
     // Sesion1
     this.tl1 = gsap.timeline();
@@ -55,6 +57,14 @@ class LandingPage extends PureComponent {
 
       this.handleSection1();
     }
+
+    // Test
+    const slides = document.querySelectorAll(".sec-slider-item");
+    slides.forEach(slide => { 
+      this.sliderTL
+        .from(slide, 1, { clipPath: "polygon(100% 100%, 100% 100%, 99% 100%, 96% 84%, 75% 70%, 61% 80%, 67% 100%, 92% 100%)" })
+        .to(slide, 1, {  clipPath: "polygon(100% 100%, 100% 79%, 100% 36%, 100% 0, 0 0, 0 47%, 0 100%, 41% 100%)"}, "+=3")
+    });
 
     
   };
@@ -83,10 +93,9 @@ class LandingPage extends PureComponent {
   };
 
   // Section1
-  handleSection1 = () => {
+  handleSection1 = (type) => {
     let curentImageIndex = 0;
     const els = document.querySelectorAll(".section-1 > .sec-bg");
-    const imgEl = document.querySelectorAll(".section-1 > .sec-bg > img")
 
     setInterval(() => {
       els.forEach(el => {
@@ -132,15 +141,17 @@ class LandingPage extends PureComponent {
             )
           }
 
-          {/* <div className="slider-1">
-            {
-              sesion1.map((item, i) => 
-                <div className={`sec-bg sec${i + 1}-bg`} key={i}>
-                  <img src={item.bgI} alt={item.alt}/>
-                </div>
-              )
-            }
-          </div> */}
+          <div className="slider1">
+            <div className="slider1-content">
+              {
+                sesion1.map((item, i) => 
+                  <div className={`sec-slider-item`} key={i}>
+                    <img src={item.bgI} alt={item.alt}/>
+                  </div>
+                )
+              }
+            </div>
+          </div>
         </section>
 
         <section className="section section-2">

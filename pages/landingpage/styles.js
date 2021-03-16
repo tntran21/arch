@@ -104,8 +104,45 @@ export const Container = styled.div`
           height: 100%;
           object-position: 50% 50%;
           transform: translate(0%, -10%) matrix(1, 0, 0, 1, 0, 0);
-          // will-change: transform,opacity;
           animation: bgMove1 18s infinite;
+        }
+      }
+
+      .slider1 {
+        position: absolute;
+        max-width: 240px;
+        width: 50%;
+        height: 350px;
+        bottom: 20%;
+        right: 25%;
+        border-radius: 7px;
+        overflow: hidden;
+
+        &-content {
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+        .sec-slider-item {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 1000px;
+          overflow: hidden;
+          will-change: opacity,transform;
+          transform: matrix(1, 0, 0, 1, 0, 0);
+
+          clip-path: circle(50% at 50% 50%);
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1000px;
+            overflow: hidden;
+            will-change: opacity,transform;
+          }
         }
       }
     }
