@@ -80,11 +80,64 @@ export const Container = styled.div`
 
 
     &-1 {
+      display: flex;
+      flex-direction: column;
       position: relative;
       background-color: rgba(0, 0, 0, 0.37);
       background-size: 100% 130%;
       background-repeat: no-repeat;
       overflow: hidden;
+
+      .wrap {
+        width: 100%;
+        max-width: 1600px;
+        margin: auto;
+        padding: 0 17px 17px 17px;
+        box-sizing: border-box;
+        flex-grow: 1;
+        flex-shrink: 1;
+
+        &-content {
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+        }
+
+
+        .slider1 {
+          // position: absolute;
+          max-width: 215px;
+          width: 50%;
+          height: 300px;
+          bottom: 36%;
+          right: 27%;
+          border-radius: 7px;
+          overflow: hidden;
+
+          &-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+          }
+          .sec-slider-item {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 1000px;
+            overflow: hidden;
+            will-change: opacity,transform;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: 1000px;
+              overflow: hidden;
+            }
+          }
+        }
+      }
 
       .sec-bg {
         position: absolute;
@@ -108,43 +161,6 @@ export const Container = styled.div`
         }
       }
 
-      .slider1 {
-        position: absolute;
-        max-width: 240px;
-        width: 50%;
-        height: 350px;
-        bottom: 20%;
-        right: 25%;
-        border-radius: 7px;
-        overflow: hidden;
-
-        &-content {
-          position: relative;
-          width: 100%;
-          height: 100%;
-        }
-        .sec-slider-item {
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
-          border-radius: 1000px;
-          overflow: hidden;
-          will-change: opacity,transform;
-          transform: matrix(1, 0, 0, 1, 0, 0);
-
-          clip-path: circle(50% at 50% 50%);
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 1000px;
-            overflow: hidden;
-            will-change: opacity,transform;
-          }
-        }
-      }
     }
   }
 `;
