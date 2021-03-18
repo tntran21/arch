@@ -63,16 +63,29 @@ class DetailImage extends React.Component {
         </div>
 
         <Modal className="dialog" onClose={this.onClose} isActive={this.state.show}>
-          <Carousel 
-            itemsToShow={1}
-            pagination={false}
-            className="slider"
-            renderArrow={this.myArrow}
-            initialActiveIndex={this.state.selected}
+            <div className="dialog__content">
+              <div className="dialog__content--left">
+                <Carousel 
+                  itemsToShow={1}
+                  pagination={false}
+                  className="slider"
+                  renderArrow={this.myArrow}
+                  initialActiveIndex={this.state.selected}
+                  
+                >
+                  {images.map((item, index) => <div className="dialog__img" key={index}><img src={item.src} alt={item.alt}/></div>)}
+                </Carousel>
+              </div>
+              <div className="dialog__content--right">
+                <div className="recomment-ttl">Recommended Products</div>
+                <div className="recomment-list">
+
+                {images.map((item, index) => index <=1 && <div className="recomment-item" key={index}><img src={item.src} alt={item.alt}/></div>)}
+                </div>
+              </div>
+            </div>
             
-          >
-            {images.map((item, index) => <div className="dialog__img" key={index}><img src={item.src} alt={item.alt}/></div>)}
-          </Carousel>
+        
         </Modal>
       </Container>
     )

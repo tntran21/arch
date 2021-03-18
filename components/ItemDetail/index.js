@@ -12,7 +12,7 @@ class ItemDetail extends React.PureComponent {
     return (
       <Container>
         <div className="ttl">
-          {title}
+          <h2>{title}</h2>
         </div>
         <ul className="detail">
           <li className="detail__item">- <span>Đơn vị thiết kế:</span> {detail.author}</li>

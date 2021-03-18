@@ -41,16 +41,81 @@ export const Container = styled.div`
     flex-grow: 1;
     justify-content: center;
     background: #000;
+
+    &__content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      &--left {
+        flex: 1;
+        @media (max-width: 1024px) {
+          width: 100%;
+        }
+      }
+      &--right {
+        width: 24%;
+        max-width: 250px;
+        background: #fff;
+        height: 100vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: ${getSize(10)};
+        box-sizing: border-box;
+        @media (max-width: 1024px) {
+          display: none;
+          transform: translateX(250px);
+          visibility: hidden;
+          transition: all 1s;
+        }
+        .recomment {
+          &-ttl {
+            font-size: ${getSize(12)};
+            font-weight: bold;
+            margin: ${getSize(15, 0)};
+          }
+          &-list {
+            display: flex;
+            flex-wrap: wrap;
+          }
+          &-item {
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: ${getSize(10)};
+            &:hover {
+              opacity: .8;
+            }
+            img {
+              object-fit: cover;
+              border-radius: 5px;
+              cursor: pointer;
+              width: 100%;
+              height: 100%;
+
+            }
+          }
+         
+        }
+      }
+    }
     .content {
       display: flex;
       justify-content: center;
       align-items: center;
-      max-width: 100%;
+      width: 100%;
       background: #000;
     }
     .btn__close {
-      color: #fff;
+      color: #000;
       top: ${getSize(10)};
+      font-size: ${getSize(20)};
+      width: ${getSize(15)};
+      right: 10px;
+      top: 2px;
+      @media (max-width: 1024px) {
+        color: #fff;
+
+      }
     }
     &__img {
       height: 100%;
@@ -84,9 +149,9 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.1);
-    padding: ${getSize(16)};
+    padding: ${getSize(10)};
     color: #fff;
-    width: ${getSize(20)};
+    width: ${getSize(16)};
     cursor: pointer;
   }
 `;
