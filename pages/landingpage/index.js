@@ -43,9 +43,16 @@ class LandingPage extends PureComponent {
     this.sliderTL = gsap.timeline({repeat: -1});
 
 
-    // Sesion1
+    // Section 1
     this.tl1 = gsap.timeline();
     this.bgS1 = React.createRef();
+    this.sec1T = null;
+    this.sec1LD = [];
+    this.sec2S = null;
+
+    // Section 2
+    this.tl2 = gsap.timeline();
+    this.sec2Test = null;
   };
   isCheckScroll = false;
 
@@ -53,15 +60,24 @@ class LandingPage extends PureComponent {
     // Handle logo
     this.tlLogo.from(this.lgT1, 1, { autoAlpha: 0, x: -100 }).from(this.lgT2, 1, { autoAlpha: 0, x: 100 }, "-=1");
     if (typeof window !== "undefined") {
+      gsap.registerPlugin(ScrollTrigger)
       window.addEventListener("scroll", this.handleShowLogo);
-
       this.handleSection1();
     }
 
-    // Test
-   
+    // Section 1
+    this.tl1.staggerFrom(this.sec1LD, .7, { autoAlpha: 0, y: 100 }, .2)
+    this.tl1.from(this.sec1T, .7, { autoAlpha: 0, y: 50 }).from(this.sec2S, 1, { autoAlpha: 0, x: "50%"}, "-=.9");
 
-    
+    // Section 2
+    this.tl2.to(".content-ttl", { y: 50, scrollTrigger: {
+      trigger: ".section-2",
+      start: "top top",
+      end: "bottom bottom",
+      pin: ".content-ttl",
+      pinSpacing: false,
+      scrub: true,
+    }}, "+=.2")
   };
 
   componentWillUnmount() {
@@ -92,6 +108,14 @@ class LandingPage extends PureComponent {
     let curentImageIndex = 0;
     const els = document.querySelectorAll(".section-1 > .section-bg > .sec-bg");
 
+     // mini slider
+     const slides = document.querySelectorAll(".sec-slider-item");
+     slides.forEach(slide => {
+       this.sliderTL
+         .from(slide, 1, { opacity: 0, transform: "translate(90%, 90%)" })
+         .to(slide, 1, { opacity: 1, transform: "translate(0%, 0%)"}, "+=4")
+     });
+
     setInterval(() => {
       els.forEach(el => {
         el.style.transition = "all 1s ease-out 0s";
@@ -108,13 +132,7 @@ class LandingPage extends PureComponent {
       if (curentImageIndex >= sesion1.length) curentImageIndex = 0;
     }, 6000);
 
-    // mini slider
-    const slides = document.querySelectorAll(".sec-slider-item");
-    slides.forEach(slide => {
-      this.sliderTL
-        .from(slide, 1, { opacity: 0, transform: "translate(90%, 90%)" })
-        .to(slide, 1, { opacity: 1, transform: "translate(0%, 0%)"}, "+=4")
-    });
+   
   }
 
 
@@ -148,16 +166,31 @@ class LandingPage extends PureComponent {
 
           <div className="wrap">
             <div className="wrap-content">
-              <div className="slider1">
-                <div className="slider1-content">
-                  {
-                    sesion1.map((item, i) => 
-                      <div className={`sec-slider-item`} key={i}>
-                        <img src={item.bgI} alt={item.alt}/>
-                      </div>
-                    )
-                  }
+              <div className="content1">
+                <div className="content1-left" ref={div => this.sec1T = div}>
+                  Arch House <br/>is an interior design company
                 </div>
+                <div className="slider1" ref={div => this.sec2S = div}>
+                  <div className="slider1-content">
+                    {
+                      sesion1.map((item, i) => 
+                        <div className={`sec-slider-item`} key={i}>
+                          <img src={item.bgI} alt={item.alt}/>
+                        </div>
+                      )
+                    }
+                  </div>
+                </div>
+              </div>
+
+              <div className="content2">
+                <div className="content2-box">
+                  <div className="content2-item" ref={div => this.sec1LD[0] = div}>Gunnar is a Reykjavik based photographer, storyteller and creative entrepreneur. He was born in Denmark by
+                     Icelandic parents and in 2014, he decided to quit his corporate job to satisfy his desire for adventure.</div>
+                  <div className="content2-item" ref={div => this.sec1LD[1] = div}>Gunnar is a Reykjavik based photographer, storyteller and creative entrepreneur. He was born in Denmark by
+                     Icelandic parents and in 2014, he decided to quit his corporate job to satisfy his desire for adventure.</div>
+                </div>
+                
               </div>
             </div>
             
@@ -169,6 +202,17 @@ class LandingPage extends PureComponent {
         </section>
 
         <section className="section section-2">
+          <div className="content">
+            <img src="/static/images/landingpage/DJI_0502-Pano.jpg" />
+          </div>
+          <div className="content-ttl" ref={div => this.sec2Test = div}>Sometimes you will never know the value of a moment until it becomes a memory.</div>
+            
+        </section>
+        <section class="section blue" style={{background: 'blue'}}>
+          <h1>Intro 1</h1>
+        </section>
+        <section class="section pink" style={{background: 'pink'}}>
+          <h1>Hero 2</h1>
         </section>
       </Container>
     )

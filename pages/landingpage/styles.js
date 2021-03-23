@@ -96,28 +96,77 @@ export const Container = styled.div`
         box-sizing: border-box;
         flex-grow: 1;
         flex-shrink: 1;
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: ${getSize(100)};
 
         &-content {
           display: flex;
           flex-direction: column;
           flex-grow: 1;
+          justify-content: flex-end;
+          z-index: 2;
+          .content1 {
+            display: flex;
+            justify-content: space-between;
+            @media (max-width: 767px) {
+              flex-wrap: wrap;
+              align-items: center;
+            }
+            &-left {
+              color: #fff;
+              font-weight: bold;
+              width: 50%;
+              font-size: ${getSize(18)};
+              @media (max-width: 767px) {
+                width: 49%;
+              }
+            }
+          }
+
+          .content2 {
+            display: flex;
+            justify-content: flex-end;
+            color: #fff;
+            margin: ${getSize(50, 0)};
+            font-size: ${getSize(12)};
+            &-box {
+              width: 40%;
+              display: flex;
+              justify-content: space-between;
+              @media (max-width: 767px) {
+                flex-wrap: wrap;
+                width: 100%;
+                margin: ${getSize(60, 0)};
+              }
+            }
+            &-item {
+              width: calc((100% - 20px) / 2);
+              @media (max-width: 767px) {
+                width: 100%;
+              }
+            }
+          }
         }
 
 
         .slider1 {
-          // position: absolute;
-          max-width: 215px;
-          width: 50%;
+          width: 40%;
           height: 300px;
-          bottom: 36%;
-          right: 27%;
           border-radius: 7px;
           overflow: hidden;
+          display: flex;
+          justify-content: center;
+          @media (max-width: 767px) {
+            width: 49%;
+            justify-content: flex-end;
+          }
 
           &-content {
             position: relative;
             width: 100%;
             height: 100%;
+            max-width: 215px;
           }
           .sec-slider-item {
             position: absolute;
@@ -161,6 +210,44 @@ export const Container = styled.div`
         }
       }
 
+    }
+
+    &-2 {
+      display: flex;
+      flex-direction: column;
+      min-height: 140vh;
+      background: #41443d;
+      position: relative;
+      padding-bottom: ${getSize(100)};
+      height: 200vh;
+      .content {
+        position: absolute;
+        z-index: 1;
+        top: 100px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 80vw;
+        max-width: 1124px;
+        margin: auto;
+        height: 200vh;
+        img {
+          border-radius: 100vh;
+          object-fit: cover;
+          height: 100%;
+          width: 100%;
+        }
+
+        &-ttl {
+          z-index: 2;
+          font-size: ${getSize(50)};
+          color: #fff;
+          width: 60%;
+          margin-top: ${getSize(20)};
+          margin-left: 5vw;
+        }
+       
+      }
     }
   }
 `;
